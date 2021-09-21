@@ -12,21 +12,22 @@
         input{
             display: block;
             padding:0.4rem;
-            margin: 1rem;
+            margin: 0.6rem auto 1rem auto;
             border-radius: 0.3rem;
+            border: 1px solid #000;
+            text-align: center;
         }
-        button,#btn-reset{
-            display: block;
+        button{
+            display:inline-block;
             background-color: bisque;
             border: solid bisque ; 
             border-radius: 0.5rem;
             padding:  0.3rem 1rem;
             font-size: medium;
-            line-height: 2rem;
-            margin-left: 2.8rem; 
+            margin: 0.6rem;
         }
-        #btn-reset{
-            margin-left: 3.5rem;
+        label{
+            font-size: x-large;
         }
         td, th {
             width: 6rem;
@@ -41,41 +42,47 @@
         }
         #new{
             width: 8rem;
-        }
-        
+        }        
         section{
             padding: 1rem;
-             display: inline-block;
+            display: inline-block;
+            margin: auto;
         }
-        #rig{
-             padding:  0;
-         }        
-         #lef{
-             margin-bottom: 6rem;
-             margin-right: 3rem;
-         } 
-         #main{
-             margin: 0 16rem;
-             padding: 3rem 1rem;
-
-         }  
+        #main{
+            display: flex;
+        }
+        #rig,#lef{
+             padding: 2rem;
+             text-align: center;
+        }
+        #outp{
+            text-align: center;
+            font-size: large;
+            margin: 2rem auto;
+        }
+        .hidden{
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 3s  1s, opacity 4s linear 1s;
+        }        
         
     </style>
     
     
 </head>
-<body>    
+<body>  
+    <h2><center>Cash Register</center></h2>  
     <section id="main">
     <section id="lef">
-        <h2><center>Cash Register</center></h2>
-        <span><center>Enter the Bill Amount</center></span>
-        <input type="text" placeholder="Enter the bill amount" id="bill-amt"/>
-        <span><center>Enter the Cash Paid</center></span>
-        <input type="text" placeholder="Enter the cash given" id="cash-given"/>
+        <label for="bill-amt">Enter the Bill Amount</label>
+        <input type="number" placeholder="Enter the bill amount" id="bill-amt"/>
+        <label for="cash-given">Enter the Cash Paid</label>
+        <input type="number" placeholder="Enter the cash given" id="cash-given" disabled/>
         <button id="btn">Calculate</button>
-        <input id="btn-reset" type="reset" value="Reset">
-        
+        <button id="btn-reset">Reset</button>
+        <div id="outp"></div>        
     </section>
+    
     <section id="rig">    
         <table class="content">
             <tr><th>Note</th><th id="new">No of Notes</th></tr>
